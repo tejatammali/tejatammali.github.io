@@ -29,11 +29,11 @@ typewriter.typeString('hey there!')
     .pauseFor(1000)
     .deleteAll()
     .pauseFor(500)
-    .typeString("i'm also interested in software engineering.")
+    .typeString("interested in solving business problems.")
     .pauseFor(1000)
     .deleteAll()
     .pauseFor(500)
-    .typeString("fan of paneer.")
+    .typeString("fan of pizza.")
     .pauseFor(1000)
     .deleteAll()
     .pauseFor(500)
@@ -53,7 +53,8 @@ function scrollFunction() {
   if (document.body.scrollTop > 700 || document.documentElement.scrollTop > 700) {
     document.getElementById("nav").style.top = "0";
   } else {
-    document.getElementById("nav").style.top = "-70px";
+    //change to -70 for a smoother scroll
+    document.getElementById("nav").style.top = "0px";
   }
 }
 
