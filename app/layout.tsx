@@ -1,14 +1,6 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { Lato } from "next/font/google";
 import "./globals.css";
-
-const lato = Lato({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-lato",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Teja Tammali",
@@ -27,11 +19,24 @@ export default function RootLayout({
         <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.ico" />
         <link rel="stylesheet" href="https://use.typekit.net/ufg7hqz.css" />
         <link
+          rel="preconnect"
+          href="https://fonts.googleapis.com"
+        />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+        />
+        <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
         />
       </head>
-      <body className={lato.variable}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
