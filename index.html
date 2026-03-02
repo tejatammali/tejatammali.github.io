@@ -31,8 +31,8 @@
 		<div id="nav">
 			<a href="#home-section" class="nav-item right">Teja Tammali</a>
 			<!--<a href="#skill-section" class="nav-item left">SKILLS</a>-->
-			<a href="#project-section" class="nav-item left">PROJECTS</a>
 			<a href="#education-section" class="nav-item left">EDUCATION</a>
+			<a href="#experience-section" class="nav-item left">EXPERIENCE</a>
 			<a href="#about-section" class="nav-item left">ABOUT</a>
 		</div>
 
@@ -159,14 +159,10 @@
 									--><a href="https://www.linkedin.com/in/tejatammali/" class= "fourth-color" target="_blank">LinkedIn</a><!-- 
 									 --><span class="fourth-color">"</span><span class="second-color">,</span>
 										<br>
-										<span class="fourth-color">"</span><!-- 
-									--><a href="https://github.com/tejatammali" class= "fourth-color" target="_blank">Github</a><!-- 
-									 --><span class="fourth-color">"</span><span class="second-color">,</span>
-										<br>
-										<span class="fourth-color">"</span><!-- 
-									--><a href="https://medium.com/@tejat" class= "fourth-color" target="_blank">Medium</a><!-- 
+										<span class="fourth-color">"</span><!--
+									--><a href="https://github.com/tejatammali" class= "fourth-color" target="_blank">Github</a><!--
 									 --><span class="fourth-color">"</span>
-										 <br>
+										<br>
 									</ul>
 									<span class="second-color">}</span>
 						 		</ul>
@@ -182,15 +178,75 @@
 			</section> 
 	
 
+			<!--Experience Section-->
+			<section class="container column" id="experience-section">
+				<h1 class="subtitle">EXPERIENCE</h1>
+				<div id="experience-container">
+
+					<div class="experience-item">
+						<div class="experience-header">
+							<div>
+								<h2>End of Day Pricing Associate &ndash; ISG Operations</h2>
+								<h3>Morgan Stanley</h3>
+							</div>
+							<span class="experience-date">October 2022 &ndash; Present</span>
+						</div>
+						<ul class="experience-list">
+							<li>Engineered an automated data processing pipeline using Python and Alteryx, reducing a daily 8-hour manual workflow to 30 seconds for over 30,000 financial products.</li>
+							<li>Developed a &ldquo;what-if&rdquo; simulation tool to validate and compare candidate prices from multiple data sources, providing real-time feedback to governance teams and accelerating deployment of new pricing logic.</li>
+							<li>Architected a data integrity monitoring system to reconcile internal records against real-time Bloomberg and Reuters feeds, proactively mitigating pricing risks and improving overall data accuracy.</li>
+						</ul>
+					</div>
+
+					<div class="experience-item">
+						<div class="experience-header">
+							<div>
+								<h2>Web Analyst Volunteer</h2>
+								<h3>U.S. Department of Veterans Affairs</h3>
+							</div>
+							<span class="experience-date">May 2022 &ndash; January 2023</span>
+						</div>
+						<ul class="experience-list">
+							<li>Drove a 13% increase in blog post traffic by conducting comprehensive web analytics audits and implementing data-driven SEO strategies for veteran-facing content.</li>
+							<li>Automated data extraction pipelines using Python scripts and SQL queries to feed Tableau dashboards, saving over 10 hours of manual data preparation per week.</li>
+							<li>Investigated and resolved anomalies in user engagement metrics by analyzing Google Analytics data in collaboration with development teams, improving accuracy of bounce rate reporting for key pages.</li>
+						</ul>
+					</div>
+
+					<div class="experience-item">
+						<div class="experience-header">
+							<div>
+								<h2>Business Analyst Apprentice</h2>
+								<h3>Kinetic Potential Workforce Development</h3>
+							</div>
+							<span class="experience-date">January 2022 &ndash; May 2022</span>
+						</div>
+						<ul class="experience-list">
+							<li>Built a student retention dashboard in Tableau leveraging retention modeling techniques, contributing to a 10% reduction in student attrition by identifying at-risk engagement patterns.</li>
+							<li>Designed and deployed 5 interactive Tableau dashboards to track student performance and persistence patterns, enabling data-driven interventions that improved student outcomes by 8%.</li>
+						</ul>
+					</div>
+
+				</div>
+			</section>
+
 			<!--Education Section-->
 			<section class="container column parallax" id="education-section">
 				<div class="container column" id="text">
 					<h1 class="subtitle">EDUCATION</h1>
-					<div class="container row" id="education-title">
+					<div class="container row" class="education-title">
+						<img src="assets/img/umdlogo.png">
+						<div class="container column" id="school">
+							<h2>University of Maryland, Global Campus</h2>
+							<h3>M.S. &ndash; Information Technology, Software Engineering</h3>
+							<p>In Progress</p>
+						</div>
+					</div>
+					<div class="container row" class="education-title">
 						<img src="assets/img/umdlogo.png">
 						<div class="container column" id="school">
 							<h2>University of Maryland, College Park</h2>
-							<h3>B.S. - Information Science, Data Science</h3>
+							<h3>B.S. &ndash; Information Science, Data Science</h3>
 							<p>Graduated: May 2022</p>
 						</div>
 					</div>
@@ -219,115 +275,6 @@
 
 			
 
-			<!--Project Section-->
-			<section class="container column" id="project-section">
-				<h1 class="subtitle">PROJECTS</h1>
-
-			`	<!--Filter Buttons-->
-				<div class="contianer row" id="button-section">
-					<button class="filter-button active" onclick="filterSelection('all')">All</button>
-					<button class="filter-button" onclick="filterSelection('python')">Python</button>
-					<button class="filter-button" onclick="filterSelection('r')">R</button>
-					<button class="filter-button" onclick="filterSelection('sql')">SQL</button>
-					<button class="filter-button" onclick="filterSelection('web')">Web Dev</button>
-				</div>
-
-				<!--Individual Projects-->
-				<div class="container row" id="project-container">
-
-					<div class="each-project python">
-					  <img class="proj-img" src="assets/img/aid.png"/>
-					  <div class="proj-description container column">
-					  	<div class="img-description">
-							<h2>Financial Aid Analysis</h2>
-							<p>Analyzed financial aid variables to highlight academic and demographic differences between students across states</p>
-							<br>
-							<a href="https://github.com/tejatammali/Financial-Aid-Analysis" target="_blank">Github</a>
-							<br>
-							<br>
-							<i>Python</i>
-						</div>
-					  </div>
-					</div>
-
-					<div class="each-project sql">
-					  <img class="proj-img" src="assets/img/guitar.png"/>
-					  <div class="proj-description container column">
-					  	<div class="img-description">
-							<h2>Guitar Shop Inventory</h2>
-							<p>Prepared and managed a database schema containing 7 tables that support a <b>small-scale web-enabled application.</b> Implemented with <b>CRUD</b> operations.</p>
-							<br>
-							<a href="https://github.com/tejatammali/Guitar-Shop-Inventory" target="_blank">Github</a>
-							<br>
-							<br>
-							<i>SQL, PHP, XAMMP</i>
-						</div>
-					  </div>
-					</div>
-
-					<div class="each-project r">
-					  <img class="proj-img" src="assets/img/diabetes.png"/>
-					  <div class="proj-description container column">
-					  	<div class="img-description">
-							<h2>Predicting Diabetes Diagnosis</h2>
-							<p>Built a <b>logistic regression model</b> that describes the relationship between age, BMI, and gender.</p>
-							<br>
-							<a href="https://github.com/tejatammali/Predicting-Diabetes-Diagnosis" target="_blank">Github</a>
-							<br>
-							<br>
-							<i>R, Excel</i>
-						</div>
-					  </div>
-					</div>
-
-					<div class="each-project python">
-					  <img class="proj-img" src="assets/img/follower.png"/>
-					  <div class="proj-description container column">
-					  	<div class="img-description">
-							<h2>Follower Network</h2>
-							<p>A network graph consisting of nodes and edges displaying <b>centrality</b> between Twitter accounts that follow @PlayValorant Twitter account.</p>
-							<br>
-							<a href="https://github.com/tejatammali/FollowerNetwork" target="_blank">Github</a>
-							<br>
-							<i>Python</i>
-						</div>
-					  </div>
-					</div>
-
-					<div class="each-project python">
-					  <img class="proj-img" src="assets/img/tone.png"/>
-					  <div class="proj-description container column">
-					  	<div class="img-description">
-							<h2>VCT's Tone</h2>
-							<p>Designed an <b>information retrieval</b> and <b>classification system</b> for sentiment analysis on tweets using Python to determine positive, negative, and neutral tweets based on a given search query from the <b>Twitter API.</b></p>
-							<br>
-							<a href="https://github.com/tejatammali/Tone-of-the-Valorant-Champion-Tour" target="_blank">Github</a>
-							<br>
-							<br>
-							<i>Python</i>
-						</div>
-					  </div>
-					</div>
-
-					<div class="each-project web">
-					  <img class="proj-img" src="assets/img/website.png"/>
-					  <div class="proj-description container column">
-					  	<div class="img-description">
-							<h2>Personal Website</h2>
-							<p>This website was made from pure <b>HTML/CSS & JavaScript</b>!</p>
-							<br>
-							<br>
-							<i>HTML / CSS / JavaScript</i>
-						</div>
-					  </div>
-					</div>
-
-				</div>
-			</section>
-
-
-
-
 			<!--Footer/Contact-->
 			<section class="container column" id="footer">
 				<div class="container row" id="social-container">
@@ -335,9 +282,7 @@
 					<span>•</span>
 					<a href="https://github.com/tejatammali" target="_blank">Github</a>
 					<span>•</span>
-					<a href="https://medium.com/@tejat" target="_blank">Medium</a>
-					<span>•</span>
-					<a href="mailto:tejat18@umd.edu" target="_blank">Email</a>
+					<a href="mailto:teja.tammali0@gmail.com" target="_blank">Email</a>
 				</div>
 				<div>
 					<p id="copyright"></p>
