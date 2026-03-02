@@ -40,11 +40,11 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, x: -50 },
   visible: {
     opacity: 1,
-    y: 0,
-    transition: { duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] as const },
+    x: 0,
+    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] as const },
   },
 };
 
@@ -54,15 +54,24 @@ export default function ExperienceSection() {
       id="experience"
       className="min-h-screen bg-white flex flex-col items-center py-20 px-8"
     >
-      <motion.h1
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
-        className="text-[175%] font-light tracking-[2px] text-heading mb-12"
-      >
-        EXPERIENCE
-      </motion.h1>
+      <div className="flex flex-col items-center mb-12">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-[175%] font-light tracking-[2px] text-heading"
+        >
+          EXPERIENCE
+        </motion.h1>
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5, delay: 0.35, ease: "easeOut" }}
+          className="mt-3 h-[3px] w-16 bg-accent origin-left"
+        />
+      </div>
 
       <motion.div
         variants={containerVariants}
@@ -75,8 +84,10 @@ export default function ExperienceSection() {
           <motion.div
             key={exp.title}
             variants={itemVariants}
-            className={`mb-10 pb-10 ${
-              i < EXPERIENCES.length - 1 ? "border-b border-[#e5e5e5]" : ""
+            whileHover={{ x: 6 }}
+            transition={{ type: "spring", stiffness: 500, damping: 35 }}
+            className={`mb-10 pb-10 pl-6 border-l-[3px] border-l-[#e5e5e5] hover:border-l-[#d3cbf5] transition-colors duration-300 ${
+              i < EXPERIENCES.length - 1 ? "border-b border-b-[#e5e5e5]" : ""
             }`}
           >
             <div className="flex justify-between items-start flex-wrap gap-2 mb-2">

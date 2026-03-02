@@ -62,11 +62,30 @@ export default function HeroSection() {
     <section
       ref={sectionRef}
       id="home"
-      className="min-h-screen flex flex-col items-center justify-center gap-10"
+      className="relative min-h-screen flex flex-col items-center justify-center gap-10 overflow-hidden"
     >
+      {/* Decorative floating gradient orbs */}
+      <div
+        className="blob-1 absolute -top-24 -left-36 w-[620px] h-[620px] rounded-full pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(211,203,245,0.45) 0%, transparent 65%)",
+        }}
+      />
+      <div
+        className="blob-2 absolute -bottom-24 -right-36 w-[520px] h-[520px] rounded-full pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(211,203,245,0.3) 0%, transparent 65%)",
+        }}
+      />
+
       <div className="flex items-center justify-center gap-16 flex-wrap px-8">
         {/* Profile image */}
-        <div ref={imageRef} className="relative w-[420px] h-[480px] shrink-0">
+        <div
+          ref={imageRef}
+          className="relative w-[420px] h-[480px] shrink-0 transition-transform duration-700 hover:scale-[1.02] cursor-default"
+        >
           <Image
             src="/img/profile.jpg"
             alt="Teja Tammali"
