@@ -12,36 +12,49 @@ export default function AboutSection() {
       className="bg-[#F0F0F0] min-h-screen flex flex-col items-center justify-center py-20 px-8"
     >
       {/* Title */}
-      <motion.h1
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
-        className="text-[175%] font-light tracking-[2px] text-heading mb-12"
-      >
-        HELLO, WORLD!
-      </motion.h1>
+      <div className="flex flex-col items-center mb-12">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-[175%] font-light tracking-[2px] text-heading"
+        >
+          HELLO, WORLD!
+        </motion.h1>
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5, delay: 0.35, ease: "easeOut" }}
+          className="mt-3 h-[3px] w-16 bg-accent origin-left"
+        />
+      </div>
 
       <div className="flex items-start justify-center gap-10 flex-wrap w-full max-w-5xl">
-        {/* Code console – slides in from left */}
+        {/* Code console – slides in from left, then gently floats */}
         <motion.div
           initial={{ opacity: 0, x: -60 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.75, ease: EASE }}
-          className="rounded overflow-y-auto"
-          style={{
-            height: 420,
-            width: 560,
-            fontFamily: "Monaco, monospace",
-            fontSize: "90%",
-            lineHeight: "22px",
-            backgroundColor: "#2a2d34",
-            borderTop: "20px solid #e5e5e5",
-            boxShadow: "12px 12px 1px #d7d3e7",
-            padding: "28px",
-          }}
         >
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            className="rounded overflow-y-auto"
+            style={{
+              height: 420,
+              width: 560,
+              fontFamily: "Monaco, monospace",
+              fontSize: "90%",
+              lineHeight: "22px",
+              backgroundColor: "#2a2d34",
+              borderTop: "20px solid #e5e5e5",
+              boxShadow: "12px 12px 1px #d7d3e7",
+              padding: "28px",
+            }}
+          >
           {/* package aboutMe; */}
           <div>
             <span className="c1">package</span>{" "}
@@ -207,28 +220,34 @@ export default function AboutSection() {
           <div>
             <span className="c2">{"}"}</span>
           </div>
+          </motion.div>
         </motion.div>
 
-        {/* Profile photo – slides in from right */}
+        {/* Profile photo – slides in from right, then gently floats */}
         <motion.div
           initial={{ opacity: 0, x: 60 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.75, delay: 0.15, ease: EASE }}
-          className="relative overflow-hidden rounded"
-          style={{
-            width: 300,
-            height: 420,
-            borderTop: "20px solid #e5e5e5",
-            boxShadow: "12px 12px 1px #d7d3e7",
-          }}
         >
-          <Image
-            src="/img/profile.jpg"
-            alt="Teja Tammali"
-            fill
-            className="object-cover"
-          />
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1.6 }}
+            className="relative overflow-hidden rounded"
+            style={{
+              width: 300,
+              height: 420,
+              borderTop: "20px solid #e5e5e5",
+              boxShadow: "12px 12px 1px #d7d3e7",
+            }}
+          >
+            <Image
+              src="/img/profile.jpg"
+              alt="Teja Tammali"
+              fill
+              className="object-cover"
+            />
+          </motion.div>
         </motion.div>
       </div>
     </section>

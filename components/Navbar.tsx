@@ -26,8 +26,8 @@ export default function Navbar() {
           animate={{ y: 0 }}
           exit={{ y: -80 }}
           transition={{ type: "spring", stiffness: 320, damping: 32 }}
-          className="fixed top-0 left-0 right-0 z-50 bg-white"
-          style={{ boxShadow: "2px 2px 5px #aaaaaa" }}
+          className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md"
+          style={{ boxShadow: "0 1px 20px rgba(0,0,0,0.06)" }}
         >
           <div className="flex items-center justify-between px-6">
             <a

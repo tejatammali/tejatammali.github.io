@@ -16,32 +16,16 @@ const DEGREES = [
   },
 ];
 
-const COURSEWORK: Record<string, string[]> = {
-  "Information Science": [
-    "User-Centered Design & Development",
-    "Database Design Modeling",
-    "Dynamic Web Applications",
-    "Organization Management",
-    "Information Organization",
-  ],
-  "Data Science": [
-    "Object-Oriented Python Programming",
-    "Data Sources & Manipulation",
-    "Statistics in Data Science",
-    "Data Science Techniques",
-  ],
-};
-
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.2 } },
+  visible: { transition: { staggerChildren: 0.25 } },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, x: 50 },
   visible: {
     opacity: 1,
-    y: 0,
+    x: 0,
     transition: { duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] as const },
   },
 };
@@ -52,15 +36,24 @@ export default function EducationSection() {
       id="education"
       className="min-h-screen bg-[#474d5a] flex flex-col items-center py-20 px-8 text-white"
     >
-      <motion.h1
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.6 }}
-        className="text-[175%] font-light tracking-[2px] mb-12"
-      >
-        EDUCATION
-      </motion.h1>
+      <div className="flex flex-col items-center mb-12">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-[175%] font-light tracking-[2px]"
+        >
+          EDUCATION
+        </motion.h1>
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5, delay: 0.35, ease: "easeOut" }}
+          className="mt-3 h-[3px] w-16 bg-accent origin-left"
+        />
+      </div>
 
       <motion.div
         variants={containerVariants}
@@ -69,12 +62,13 @@ export default function EducationSection() {
         viewport={{ once: true, margin: "-80px" }}
         className="w-full max-w-3xl flex flex-col gap-8"
       >
-        {/* Degree entries */}
         {DEGREES.map((d) => (
           <motion.div
             key={d.school}
             variants={itemVariants}
-            className="flex items-center gap-6 flex-wrap"
+            whileHover={{ x: -6 }}
+            transition={{ type: "spring", stiffness: 500, damping: 35 }}
+            className="flex items-center gap-6 flex-wrap pr-6 border-r-[3px] border-r-[rgba(255,255,255,0.15)] hover:border-r-accent transition-colors duration-300"
           >
             <div className="relative w-16 h-16 shrink-0">
               <Image
@@ -91,26 +85,6 @@ export default function EducationSection() {
             </div>
           </motion.div>
         ))}
-
-        {/* Coursework */}
-        <motion.div variants={itemVariants} className="mt-4">
-          <h4 className="text-base font-semibold mb-4">Relevant Coursework:</h4>
-          <div className="flex flex-wrap gap-14">
-            {Object.entries(COURSEWORK).map(([subject, courses]) => (
-              <div key={subject}>
-                <p className="font-medium mb-2 opacity-95">{subject}</p>
-                <ul
-                  className="pl-5 text-sm leading-7 opacity-80"
-                  style={{ listStyleType: "circle" }}
-                >
-                  {courses.map((c) => (
-                    <li key={c}>{c}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </motion.div>
       </motion.div>
     </section>
   );
