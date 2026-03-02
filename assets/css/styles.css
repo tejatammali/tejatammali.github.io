@@ -274,7 +274,11 @@ ul {
 	color:white;
 }
 
-#education-title img {
+.education-title {
+	margin-bottom: 20px;
+}
+
+.education-title img {
 	width: 10%;
 }
 
@@ -305,6 +309,76 @@ ul {
 
 #progress {
 	font-size: 80%;
+}
+
+/**Experience**/
+
+#experience-section {
+	padding: 60px 50px;
+	min-height: 100vh;
+	background-color: #ffffff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#experience-container {
+	width: 100%;
+	max-width: 860px;
+	margin-top: 20px;
+}
+
+.experience-item {
+	margin-bottom: 40px;
+	padding-bottom: 36px;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.experience-item:last-child {
+	border-bottom: none;
+}
+
+.experience-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	flex-wrap: wrap;
+	margin-bottom: 10px;
+}
+
+.experience-item h2 {
+	margin: 0 0 4px 0;
+	font-size: 18px;
+	font-weight: 700;
+	color: #2a2d34;
+}
+
+.experience-item h3 {
+	margin: 0;
+	font-size: 14px;
+	font-weight: 400;
+	color: #575757;
+}
+
+.experience-date {
+	color: #8d8d8d;
+	font-size: 13px;
+	font-style: italic;
+	white-space: nowrap;
+	margin-top: 4px;
+}
+
+.experience-list {
+	margin-top: 12px;
+	padding-left: 20px;
+	font-size: 95%;
+	line-height: 1.7;
+	list-style-type: disc;
+}
+
+.experience-list li {
+	margin: 8px 0;
+	color: #575757;
 }
 
 /**Projects**/
