@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Adobe Typekit Nobel font */
+body {
+  font-family: nobel, sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: nobel, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+/* ── Typewriter cursor ── */
+.typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background-color: #575757;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ── Scroll arrow ── */
+.scroll-arrow {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  border-right: 3px solid #575757;
+  border-bottom: 3px solid #575757;
+  transform: rotate(45deg);
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.scroll-arrow:hover {
+  opacity: 0.5;
+}
+
+/* ── Navbar underline hover ── */
+.nav-link {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 12px;
+  left: 16px;
+  right: 16px;
+  height: 3px;
+  background-color: #d3cbf5;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 350ms ease-in-out;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-link-home::after {
+  left: 0;
+  right: 0;
+}
+
+/* ── Code console syntax colors ── */
+.c1 {
+  color: #ac78c2;
+} /* purple  – keywords  */
+.c2 {
+  color: #c5c8c6;
+} /* grey    – operators */
+.c3 {
+  color: #5888ca;
+} /* blue    – types     */
+.c4 {
+  color: #f0c674;
+} /* yellow  – strings   */
+.c5 {
+  color: #b5bd68;
+} /* green   – identifiers */
+
+.code-link {
+  color: #f0c674 !important;
+  text-decoration: underline;
+}
+
+/* ── Smooth scroll ── */
+html {
+  scroll-behavior: smooth;
+}
