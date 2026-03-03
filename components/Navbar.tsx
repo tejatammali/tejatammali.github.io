@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 const NAV_LINKS = [
   { label: "ABOUT", href: "#about" },
   { label: "EXPERIENCE", href: "#experience" },
+  { label: "PROJECTS", href: "#projects" },
+  { label: "SKILLS", href: "#skills" },
   { label: "EDUCATION", href: "#education" },
 ];
 
@@ -41,7 +43,7 @@ export default function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="nav-link px-4 py-[22px] font-medium text-[17px] text-heading"
+                  className="nav-link px-3 py-[22px] font-medium text-[14px] text-heading tracking-wide"
                 >
                   {link.label}
                 </a>

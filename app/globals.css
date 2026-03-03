@@ -70,8 +70,8 @@ a {
   content: "";
   position: absolute;
   bottom: 12px;
-  left: 16px;
-  right: 16px;
+  left: 12px;
+  right: 12px;
   height: 3px;
   background-color: #d3cbf5;
   transform: scaleX(0);
