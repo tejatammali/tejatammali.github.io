@@ -7,12 +7,14 @@ const DEGREES = [
   {
     school: "University of Maryland, Global Campus",
     degree: "M.S. \u2013 Information Technology, Software Engineering",
-    status: "In Progress",
+    status: "Graduated",
+    logo: "/img/umgclogo.png",
   },
   {
     school: "University of Maryland, College Park",
     degree: "B.S. \u2013 Information Science, Data Science",
     status: "Graduated: May 2022",
+    logo: "/img/umdlogo.png",
   },
 ];
 
@@ -72,8 +74,8 @@ export default function EducationSection() {
           >
             <div className="relative w-16 h-16 shrink-0">
               <Image
-                src="/img/umdlogo.png"
-                alt="University of Maryland logo"
+                src={d.logo}
+                alt={`${d.school} logo`}
                 fill
                 className="object-contain"
               />
@@ -85,6 +87,31 @@ export default function EducationSection() {
             </div>
           </motion.div>
         ))}
+
+        {/* Certifications */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-6"
+        >
+          <p className="text-[11px] font-semibold tracking-[2px] text-white/50 uppercase mb-4">
+            Certifications
+          </p>
+          <div className="flex items-center gap-4 bg-white/5 rounded-lg px-5 py-4 border border-white/10 w-fit">
+            <div
+              className="w-9 h-9 rounded-full flex items-center justify-center shrink-0 text-[15px] font-bold"
+              style={{ background: "linear-gradient(135deg, #d3cbf5 0%, #b8a8f0 100%)", color: "#474d5a" }}
+            >
+              ✓
+            </div>
+            <div>
+              <h3 className="text-base font-semibold m-0">Alteryx Designer Core</h3>
+              <p className="text-sm m-0 opacity-60">Alteryx</p>
+            </div>
+          </div>
+        </motion.div>
       </motion.div>
     </section>
   );
