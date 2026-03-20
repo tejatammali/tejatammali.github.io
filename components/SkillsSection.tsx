@@ -4,74 +4,49 @@ import { motion } from "framer-motion";
 
 const SKILL_CATEGORIES = [
   {
-    label: "Languages",
+    label: "Operations",
+    gradient: "linear-gradient(135deg, #d3cbf5 0%, #b8a8f0 100%)",
+    items: [
+      { name: "Process Optimization", icon: null },
+      { name: "Technical Triage", icon: null },
+      { name: "Stakeholder Management", icon: null },
+      { name: "Global Incident Response", icon: null },
+      { name: "Agile / SDLC", icon: null },
+    ],
+  },
+  {
+    label: "Technical",
+    gradient: "linear-gradient(135deg, #a8d4f5 0%, #8ab8f0 100%)",
     items: [
       { name: "Python", icon: "devicon-python-plain colored" },
       { name: "SQL", icon: null },
-      { name: "JavaScript", icon: "devicon-javascript-plain colored" },
       { name: "TypeScript", icon: "devicon-typescript-plain colored" },
-      { name: "Java", icon: "devicon-java-plain colored" },
-    ],
-  },
-  {
-    label: "Frameworks & Libraries",
-    items: [
-      { name: "Pandas", icon: null },
-      { name: "NumPy", icon: null },
-      { name: "Scikit-learn", icon: null },
-      { name: "Matplotlib", icon: null },
-      { name: "React", icon: "devicon-react-original colored" },
-      { name: "React Native", icon: "devicon-react-original colored" },
-      { name: "Node.js", icon: "devicon-nodejs-plain colored" },
-    ],
-  },
-  {
-    label: "Cloud & DevOps",
-    items: [
-      { name: "AWS", icon: "devicon-amazonwebservices-plain colored" },
+      { name: "Alteryx", icon: null },
+      { name: "AWS (EC2 / S3)", icon: "devicon-amazonwebservices-plain colored" },
       { name: "Docker", icon: "devicon-docker-plain colored" },
       { name: "Firebase", icon: "devicon-firebase-plain colored" },
+      { name: "React Native", icon: "devicon-react-original colored" },
+      { name: "Flutter / Dart", icon: "devicon-flutter-plain colored" },
       { name: "GitHub Actions", icon: "devicon-github-plain" },
-    ],
-  },
-  {
-    label: "Machine Learning",
-    items: [
-      { name: "Predictive Modeling", icon: null },
-      { name: "Time Series Forecasting", icon: null },
-      { name: "Classification", icon: null },
-      { name: "LLM API Integration", icon: null },
-      { name: "Model Validation", icon: null },
-    ],
-  },
-  {
-    label: "Tools",
-    items: [
-      { name: "Alteryx", icon: null },
+      { name: "CI/CD", icon: null },
       { name: "Tableau", icon: null },
-      { name: "Git", icon: "devicon-git-plain colored" },
-      { name: "Agile / Scrum", icon: null },
+      { name: "LLM Integration (Gemini API)", icon: null },
     ],
   },
 ];
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
+  visible: { transition: { staggerChildren: 0.15 } },
 };
 
-const rowVariants = {
-  hidden: { opacity: 0, y: 20 },
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] as const },
+    transition: { duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] as const },
   },
-};
-
-const chipContainerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.04 } },
 };
 
 const chipVariants = {
@@ -81,6 +56,11 @@ const chipVariants = {
     scale: 1,
     transition: { duration: 0.25, ease: "easeOut" },
   },
+};
+
+const chipContainerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.04 } },
 };
 
 export default function SkillsSection() {
@@ -113,25 +93,31 @@ export default function SkillsSection() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
-        className="w-full max-w-[860px] flex flex-col gap-8"
+        className="w-full max-w-[900px] grid grid-cols-1 md:grid-cols-2 gap-6"
       >
         {SKILL_CATEGORIES.map((category) => (
           <motion.div
             key={category.label}
-            variants={rowVariants}
-            className="flex flex-wrap gap-y-3 gap-x-0 items-start"
+            variants={cardVariants}
+            whileHover={{ y: -8, boxShadow: "0 24px 60px rgba(0,0,0,0.10)" }}
+            transition={{ type: "spring", stiffness: 400, damping: 28 }}
+            className="bg-white rounded-lg overflow-hidden flex flex-col"
+            style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.06)" }}
           >
-            {/* Category label */}
-            <p
-              className="text-[11px] font-semibold tracking-[2px] text-muted uppercase mt-1.5 w-[180px] shrink-0"
+            {/* Gradient header */}
+            <div
+              className="h-[56px] flex items-center px-6"
+              style={{ background: category.gradient }}
             >
-              {category.label}
-            </p>
+              <span className="text-[11px] font-semibold tracking-[2.5px] uppercase text-heading opacity-70">
+                {category.label}
+              </span>
+            </div>
 
             {/* Chips */}
             <motion.div
               variants={chipContainerVariants}
-              className="flex flex-wrap gap-2 flex-1"
+              className="p-6 flex flex-wrap gap-2"
             >
               {category.items.map((item) => (
                 <motion.span
@@ -140,7 +126,7 @@ export default function SkillsSection() {
                   className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#F0F0F0] text-body text-[13px]"
                 >
                   {item.icon && (
-                    <i className={`${item.icon}`} style={{ fontSize: "1.1rem" }} />
+                    <i className={item.icon} style={{ fontSize: "1.1rem" }} />
                   )}
                   {item.name}
                 </motion.span>

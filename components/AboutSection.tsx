@@ -95,8 +95,7 @@ export default function AboutSection() {
                 <span className="c3">String</span>{" "}
                 <span className="c2">mastersDegree = </span>
                 <span className="c4">
-                  &quot;UMGC (Information Technology, Software
-                  Engineering)&quot;
+                  &quot;UMGC (Information Technology)&quot;
                 </span>
                 <span className="c2">;</span>
               </div>
@@ -104,28 +103,9 @@ export default function AboutSection() {
                 <span className="c3">String</span>{" "}
                 <span className="c2">bachelorsDegree = </span>
                 <span className="c4">
-                  &quot;UMD College Park (Information Science, Data
-                  Science)&quot;
+                  &quot;UMD College Park (Information Science)&quot;
                 </span>
                 <span className="c2">;</span>
-              </div>
-
-              <div className="mt-2">
-                <span className="c3">Resume</span>{" "}
-                <span className="c2">resume = </span>
-                <span className="c1">new</span>{" "}
-                <span className="c2">Resume(</span>
-                <span className="c4">&quot;</span>
-                <a
-                  href="/Tammali_Teja_Resume.pdf"
-                  className="code-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  pdf
-                </a>
-                <span className="c4">&quot;</span>
-                <span className="c2">);</span>
               </div>
 
               <div>

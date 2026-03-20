@@ -6,9 +6,10 @@ const PROJECTS = [
   {
     name: "EvaluAI",
     subtitle: "AI-Powered University Education Platform",
+    aim: "Master's capstone applying SDLC, Agile, team collaboration, and management-level reporting.",
     year: "2024",
     description:
-      "AI-powered university education platform integrating multiple LLM APIs with Moodle LMS. Built a rubric-based automated grading module and secure code submission workflow, deployed on AWS with 99.9% uptime via a GitHub Actions + Docker CI/CD pipeline.",
+      "Modernized legacy Moodle LMS workflows by bridging them with a scalable PHP middleware layer, integrating multiple LLM APIs to deliver robust AI capabilities. Built a rubric-based automated grading module with a secure code-submission pipeline and automated audit logs, deployed on AWS with 99.9% uptime via Docker and GitHub Actions.",
     tags: ["Dart", "Flutter", "PHP", "Moodle LMS", "AWS", "Docker", "GitHub Actions"],
     github: "https://github.com/umgc/fall2024",
     demo: null,
@@ -16,36 +17,15 @@ const PROJECTS = [
   },
   {
     name: "HouseHaggle",
-    subtitle: "AI-Powered Real Estate Negotiation Assistant",
+    subtitle: "LLM-Integrated Decision Engine",
+    aim: "Aimed at reducing buyer/seller remorse by educating users on property value factors like location, floorplan efficiency, and architectural style.",
     year: null,
     description:
-      "Cross-platform mobile app that gives homebuyers tailored negotiation strategies based on 10 scored property and market factors. Powered by GPT-4 via a custom prompt framework delivering real-time advice with sub-2-second latency, deployed on Firebase for 100+ concurrent users.",
-    tags: ["React Native", "TypeScript", "OpenAI API", "Firebase"],
-    github: "#",
+      "Cross-platform mobile app that synthesizes 10 distinct market and property data vectors to generate deterministic negotiation strategies for homebuyers. Fine-tuned a custom prompt framework integrating the Google Gemini API to deliver sub-2-second inference latency, with rigorous stress testing to bolster Firebase connection pooling and state-synchronization under peak concurrent loads.",
+    tags: ["React Native", "TypeScript", "Google Gemini API", "Firebase"],
+    github: "https://github.com/tejatammali/houseHaggle",
     demo: null,
     gradient: "linear-gradient(135deg, #a8d4f5 0%, #8ab8f0 100%)",
-  },
-  {
-    name: "PortfolioIQ",
-    subtitle: "AI-Powered Investment Portfolio Tracker",
-    year: null,
-    description:
-      "Personal portfolio analytics tool that aggregates holdings data and applies time series forecasting to model risk-adjusted returns. Generates automated weekly summaries with interactive performance charts and sector allocation breakdowns.",
-    tags: ["Python", "Pandas", "AWS Lambda", "React", "PostgreSQL"],
-    github: "#",
-    demo: null,
-    gradient: "linear-gradient(135deg, #a8f5d4 0%, #8adfc0 100%)",
-  },
-  {
-    name: "DataPulse",
-    subtitle: "ETL Pipeline Monitoring Dashboard",
-    year: null,
-    description:
-      "Full-stack dashboard for monitoring ETL pipeline health, tracking ingestion rates, error rates, and SLA compliance. Features real-time alerting and interactive visualizations to surface data pipeline issues at a glance.",
-    tags: ["Python", "FastAPI", "Docker", "PostgreSQL", "React"],
-    github: "#",
-    demo: null,
-    gradient: "linear-gradient(135deg, #f5d4a8 0%, #f0c48e 100%)",
   },
 ];
 
@@ -115,7 +95,10 @@ export default function ProjectsSection() {
                   <span className="text-muted text-xs mt-1">{project.year}</span>
                 )}
               </div>
-              <p className="text-muted text-[13px] italic mb-3 m-0">{project.subtitle}</p>
+              <p className="text-muted text-[13px] italic mb-2 m-0">{project.subtitle}</p>
+              {project.aim && (
+                <p className="text-body text-[13px] leading-relaxed mb-3 m-0 border-l-2 border-accent pl-3 italic opacity-80">{project.aim}</p>
+              )}
               <p className="text-body text-[13.5px] leading-relaxed mb-4 flex-1 m-0">
                 {project.description}
               </p>
