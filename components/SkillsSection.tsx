@@ -22,6 +22,7 @@ const SKILL_CATEGORIES = [
       { name: "Alertmanager", icon: null },
       { name: "Linux", icon: "devicon-linux-plain" },
       { name: "Docker", icon: "devicon-docker-plain colored" },
+      { name: "Kubernetes", icon: "devicon-kubernetes-plain colored" },
       { name: "AWS (EC2 / S3)", icon: "devicon-amazonwebservices-plain colored" },
       { name: "Firebase", icon: "devicon-firebase-plain colored" },
       { name: "GitHub Actions", icon: "devicon-github-plain" },

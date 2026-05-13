@@ -9,8 +9,8 @@ const PROJECTS = [
     aim: "Production-style observability platform monitoring a live flight data ingestion service end-to-end, from metric collection to SLO-driven alerting and incident runbooks.",
     year: null,
     description:
-      "Configured a Python service with Prometheus exposing p95 latency, error rate, and throughput via /metrics; built a 12-panel Grafana dashboard covering three of the four Golden Signals. Defined SLIs/SLOs (99% success rate, p95 < 2s, 7-day window) and implemented fast and slow burn Alertmanager rules tied to error budget consumption. Orchestrated a 4-service stack via docker-compose and authored runbooks for 2 alert scenarios, validated end-to-end via failure injection.",
-    tags: ["Python", "Docker", "Prometheus", "Alertmanager", "Grafana"],
+      "Configured a Python service with Prometheus exposing p95 latency, error rate, and throughput via /metrics; built a 12-panel Grafana dashboard covering three of the four Golden Signals. Defined SLIs/SLOs (99% success rate, p95 < 2s, 7-day window) and implemented fast and slow burn Alertmanager rules tied to error budget consumption. Migrated the 4-service docker-compose stack to Kubernetes — Deployments, Services, ConfigMaps, PVCs, and Secrets in a dedicated namespace with liveness/readiness probes.",
+    tags: ["Python", "Docker", "Kubernetes", "Prometheus", "Alertmanager", "Grafana"],
     github: "https://github.com/tejatammali/skywatch",
     demo: null,
     gradient: "linear-gradient(135deg, #f5d3cb 0%, #f0a898 100%)",
