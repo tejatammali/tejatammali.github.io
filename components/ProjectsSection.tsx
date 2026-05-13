@@ -4,28 +4,40 @@ import { motion } from "framer-motion";
 
 const PROJECTS = [
   {
+    name: "SkyWatcher",
+    subtitle: "Observability Engine",
+    aim: "Production-style observability platform monitoring a live flight data ingestion service end-to-end, from metric collection to SLO-driven alerting and incident runbooks.",
+    year: null,
+    description:
+      "Configured a Python service with Prometheus exposing p95 latency, error rate, and throughput via /metrics; built a 12-panel Grafana dashboard covering three of the four Golden Signals. Defined SLIs/SLOs (99% success rate, p95 < 2s, 7-day window) and implemented fast and slow burn Alertmanager rules tied to error budget consumption. Orchestrated a 4-service stack via docker-compose and authored runbooks for 2 alert scenarios, validated end-to-end via failure injection.",
+    tags: ["Python", "Docker", "Prometheus", "Alertmanager", "Grafana"],
+    github: "https://github.com/tejatammali/skywatch",
+    demo: null,
+    gradient: "linear-gradient(135deg, #f5d3cb 0%, #f0a898 100%)",
+  },
+  {
+    name: "HouseHaggle",
+    subtitle: "LLM-Integrated Decision Engine",
+    aim: "Helping homebuyers make confident, data-driven offers.",
+    year: null,
+    description:
+      "Architected a cross-platform tool that synthesizes 10 distinct market and property data vectors to generate data-driven negotiation strategies for homebuyers. Minimized end-to-end inference latency to under 2 seconds by engineering a custom prompt framework integrating the Google Gemini API. Ensured operational stability during peak concurrent loads by conducting system stress testing and optimizing Firebase infrastructure for reliability.",
+    tags: ["React Native", "TypeScript", "Google Gemini API", "Firebase"],
+    github: "https://github.com/tejatammali/houseHaggle",
+    demo: null,
+    gradient: "linear-gradient(135deg, #a8d4f5 0%, #8ab8f0 100%)",
+  },
+  {
     name: "EvaluAI",
     subtitle: "AI-Powered University Education Platform",
     aim: "Master's capstone applying SDLC, Agile, team collaboration, and management-level reporting.",
     year: "2024",
     description:
-      "Modernized legacy Moodle LMS workflows by bridging them with a scalable PHP middleware layer, integrating multiple LLM APIs to deliver robust AI capabilities. Built a rubric-based automated grading module with a secure code-submission pipeline and automated audit logs, deployed on AWS with 99.9% uptime via Docker and GitHub Actions.",
-    tags: ["Dart", "Flutter", "PHP", "Moodle LMS", "AWS", "Docker", "GitHub Actions"],
+      "Modernized legacy Moodle LMS workflows by connecting them with a scalable PHP middleware layer, integrating multiple LLM APIs to deliver AI capabilities. Maintained data sovereignty and academic integrity by implementing a rubric-based automated grading module, including a secure code-submission pipeline and audit logs.",
+    tags: ["Dart", "Flutter", "Moodle LMS"],
     github: "https://github.com/umgc/fall2024",
     demo: null,
     gradient: "linear-gradient(135deg, #d3cbf5 0%, #b8a8f0 100%)",
-  },
-  {
-    name: "HouseHaggle",
-    subtitle: "LLM-Integrated Decision Engine",
-    aim: "Aimed at reducing buyer/seller remorse by educating users on property value factors like location, floorplan efficiency, and architectural style.",
-    year: null,
-    description:
-      "Cross-platform mobile app that synthesizes 10 distinct market and property data vectors to generate deterministic negotiation strategies for homebuyers. Fine-tuned a custom prompt framework integrating the Google Gemini API to deliver sub-2-second inference latency, with rigorous stress testing to bolster Firebase connection pooling and state-synchronization under peak concurrent loads.",
-    tags: ["React Native", "TypeScript", "Google Gemini API", "Firebase"],
-    github: "https://github.com/tejatammali/houseHaggle",
-    demo: null,
-    gradient: "linear-gradient(135deg, #a8d4f5 0%, #8ab8f0 100%)",
   },
 ];
 
@@ -73,7 +85,7 @@ export default function ProjectsSection() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
-        className="w-full max-w-[900px] grid grid-cols-1 md:grid-cols-2 gap-6"
+        className="w-full max-w-[900px] grid grid-cols-1 md:grid-cols-2 gap-6 [&>*:last-child:nth-child(odd)]:md:col-span-2 [&>*:last-child:nth-child(odd)]:md:max-w-[calc(50%-12px)] [&>*:last-child:nth-child(odd)]:md:mx-auto"
       >
         {PROJECTS.map((project) => (
           <motion.div

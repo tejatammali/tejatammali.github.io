@@ -6,13 +6,13 @@ import { motion } from "framer-motion";
 const DEGREES = [
   {
     school: "University of Maryland, Global Campus",
-    degree: "M.S. \u2013 Information Technology, Software Engineering",
-    status: "Graduated",
+    degree: "M.S. \u2013 Information Technology",
+    status: "Graduated: December 2024",
     logo: "/img/umgclogo.png",
   },
   {
     school: "University of Maryland, College Park",
-    degree: "B.S. \u2013 Information Science, Data Science",
+    degree: "B.S. \u2013 Information Science",
     status: "Graduated: May 2022",
     logo: "/img/umdlogo.png",
   },

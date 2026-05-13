@@ -4,33 +4,47 @@ import { motion } from "framer-motion";
 
 const SKILL_CATEGORIES = [
   {
-    label: "Operations",
+    label: "Languages",
     gradient: "linear-gradient(135deg, #d3cbf5 0%, #b8a8f0 100%)",
-    items: [
-      { name: "Process Optimization", icon: null },
-      { name: "Technical Triage", icon: null },
-      { name: "Stakeholder Management", icon: null },
-      { name: "Global Incident Response", icon: null },
-      { name: "Agile / SDLC", icon: null },
-    ],
-  },
-  {
-    label: "Technical",
-    gradient: "linear-gradient(135deg, #a8d4f5 0%, #8ab8f0 100%)",
     items: [
       { name: "Python", icon: "devicon-python-plain colored" },
       { name: "SQL", icon: null },
+      { name: "Bash", icon: null },
       { name: "TypeScript", icon: "devicon-typescript-plain colored" },
-      { name: "Alteryx", icon: null },
-      { name: "AWS (EC2 / S3)", icon: "devicon-amazonwebservices-plain colored" },
+    ],
+  },
+  {
+    label: "Technologies & Tools",
+    gradient: "linear-gradient(135deg, #a8d4f5 0%, #8ab8f0 100%)",
+    items: [
+      { name: "Prometheus", icon: null },
+      { name: "Grafana", icon: null },
+      { name: "Alertmanager", icon: null },
+      { name: "Linux", icon: "devicon-linux-plain" },
       { name: "Docker", icon: "devicon-docker-plain colored" },
+      { name: "AWS (EC2 / S3)", icon: "devicon-amazonwebservices-plain colored" },
       { name: "Firebase", icon: "devicon-firebase-plain colored" },
-      { name: "React Native", icon: "devicon-react-original colored" },
-      { name: "Flutter / Dart", icon: "devicon-flutter-plain colored" },
       { name: "GitHub Actions", icon: "devicon-github-plain" },
-      { name: "CI/CD", icon: null },
+      { name: "DB2", icon: null },
+      { name: "Sybase", icon: null },
       { name: "Tableau", icon: null },
-      { name: "LLM Integration (Gemini API)", icon: null },
+      { name: "Gemini API", icon: null },
+      { name: "React Native", icon: "devicon-react-original colored" },
+      { name: "Alteryx", icon: null },
+    ],
+  },
+  {
+    label: "Practices",
+    gradient: "linear-gradient(135deg, #a8f5d4 0%, #8af0b8 100%)",
+    items: [
+      { name: "SLO/SLI Design", icon: null },
+      { name: "Incident Response", icon: null },
+      { name: "Runbook Authoring", icon: null },
+      { name: "Load & Stress Testing", icon: null },
+      { name: "Technical Triage", icon: null },
+      { name: "Process Automation", icon: null },
+      { name: "Agile / SDLC", icon: null },
+      { name: "Stakeholder Management", icon: null },
     ],
   },
 ];
@@ -93,7 +107,7 @@ export default function SkillsSection() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
-        className="w-full max-w-[900px] grid grid-cols-1 md:grid-cols-2 gap-6"
+        className="w-full max-w-[900px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
       >
         {SKILL_CATEGORIES.map((category) => (
           <motion.div

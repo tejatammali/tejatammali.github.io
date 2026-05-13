@@ -4,32 +4,24 @@ import { motion } from "framer-motion";
 
 const EXPERIENCES = [
   {
-    title: "End of Day Pricing Associate \u2013 ISG Operations",
+    title: "Product and Pricing Reference Data Associate \u2013 Operations Team",
     company: "Morgan Stanley",
+    location: "Baltimore, MD",
     date: "October 2022 \u2013 Present",
     bullets: [
-      "Engineered an automated data processing pipeline using Python and Alteryx, reducing a daily 8-hour manual workflow to 30 seconds for over 30,000 financial products.",
-      'Developed a \u201cwhat-if\u201d simulation tool to validate and compare candidate prices from multiple data sources, providing real-time feedback to governance teams and accelerating deployment of new pricing logic.',
-      "Architected a data integrity monitoring system to reconcile internal records against real-time Bloomberg and Reuters feeds, proactively mitigating pricing risks and improving overall data accuracy.",
+      "Automated Python/Alteryx frameworks for 50k+ products, reducing daily processing from 8 hours to 30 seconds; led training and demos to ensure team adoption and error resolution.",
+      "Built a simulation engine normalizing data for 500k products, achieving a 23% accuracy gain; leveraged impact analysis to pivot senior leadership toward modernized backend logic.",
+      "Acted as the control team bridge between end users and internal/external vendors, managing 160+ monthly user inquiries and 12+ high-priority incidents from inquiry through resolution.",
     ],
   },
   {
     title: "Web Analyst Volunteer",
     company: "U.S. Department of Veterans Affairs",
+    location: "Remote",
     date: "May 2022 \u2013 January 2023",
     bullets: [
-      "Drove a 13% increase in blog post traffic by conducting comprehensive web analytics audits and implementing data-driven SEO strategies for veteran-facing content.",
-      "Automated data extraction pipelines using Python scripts and SQL queries to feed Tableau dashboards, saving over 10 hours of manual data preparation per week.",
-      "Investigated and resolved anomalies in user engagement metrics by analyzing Google Analytics data in collaboration with development teams, improving accuracy of bounce rate reporting for key pages.",
-    ],
-  },
-  {
-    title: "Business Analyst Apprentice",
-    company: "Kinetic Potential Workforce Development",
-    date: "January 2022 \u2013 May 2022",
-    bullets: [
-      "Built a student retention dashboard in Tableau leveraging retention modeling techniques, contributing to a 10% reduction in student attrition by identifying at-risk engagement patterns.",
-      "Designed and deployed 5 interactive Tableau dashboards to track student performance and persistence patterns, enabling data-driven interventions that improved student outcomes by 8%.",
+      "Surfaced project health data for cross-functional leadership by building Python and SQL reporting pipelines, delivering high-fidelity visibility into operational metrics.",
+      "Conducted web analytics audits to map user journeys, identifying and resolving friction points to streamline data discovery for internal teams.",
     ],
   },
 ];
@@ -103,6 +95,9 @@ export default function ExperienceSection() {
                   style={{ fontSize: 14 }}
                 >
                   {exp.company}
+                  {exp.location && (
+                    <span className="text-muted ml-2" style={{ fontSize: 13 }}>· {exp.location}</span>
+                  )}
                 </h3>
               </div>
               <span className="text-muted italic whitespace-nowrap mt-1" style={{ fontSize: 13 }}>
