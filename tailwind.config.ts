@@ -10,10 +10,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        body: "var(--color-body)",
-        heading: "var(--color-heading)",
-        muted: "var(--color-muted)",
-        accent: "var(--color-accent)",
+        body: "#575757",
+        heading: "#2a2d34",
+        muted: "#8d8d8d",
+        accent: "#d3cbf5",
       },
       fontFamily: {
         nobel: ["nobel", "sans-serif"],

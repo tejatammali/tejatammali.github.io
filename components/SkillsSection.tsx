@@ -114,7 +114,7 @@ export default function SkillsSection() {
             variants={cardVariants}
             whileHover={{ y: -8, boxShadow: "0 24px 60px rgba(0,0,0,0.10)" }}
             transition={{ type: "spring", stiffness: 400, damping: 28 }}
-            className="bg-white dark:bg-[#1c2030] rounded-lg overflow-hidden flex flex-col"
+            className="bg-white dark:bg-[#1a2035] rounded-lg overflow-hidden flex flex-col border border-transparent dark:border-[#2d3752]"
             style={{ boxShadow: "0 4px 20px var(--card-shadow)" }}
           >
             {/* Gradient header */}
@@ -136,7 +136,7 @@ export default function SkillsSection() {
                 <motion.span
                   key={item.name}
                   variants={chipVariants}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#F0F0F0] dark:bg-[#0f1117] text-body text-[13px]"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#F0F0F0] dark:bg-[#252d42] text-body text-[13px]"
                 >
                   {item.icon && (
                     <i className={item.icon} style={{ fontSize: "1.1rem" }} />

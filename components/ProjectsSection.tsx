@@ -59,7 +59,7 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="min-h-screen bg-[#F0F0F0] dark:bg-[#131720] flex flex-col items-center py-20 px-8 transition-colors duration-300"
+      className="min-h-screen bg-[#F0F0F0] dark:bg-[#111827] flex flex-col items-center py-20 px-8 transition-colors duration-300"
     >
       <div className="flex flex-col items-center mb-12">
         <motion.h1
@@ -93,7 +93,7 @@ export default function ProjectsSection() {
             variants={itemVariants}
             whileHover={{ y: -8, boxShadow: "0 24px 60px rgba(0,0,0,0.10)" }}
             transition={{ type: "spring", stiffness: 400, damping: 28 }}
-            className="bg-white dark:bg-[#1c2030] rounded-lg overflow-hidden flex flex-col"
+            className="bg-white dark:bg-[#1a2035] rounded-lg overflow-hidden flex flex-col border border-transparent dark:border-[#2d3752]"
             style={{ boxShadow: "0 4px 20px var(--card-shadow)" }}
           >
             {/* Gradient header bar */}
@@ -120,7 +120,7 @@ export default function ProjectsSection() {
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-2.5 py-1 rounded-full bg-[#F0F0F0] dark:bg-[#0f1117] text-body text-[12px]"
+                    className="px-2.5 py-1 rounded-full bg-[#F0F0F0] dark:bg-[#252d42] text-body text-[12px]"
                   >
                     {tag}
                   </span>

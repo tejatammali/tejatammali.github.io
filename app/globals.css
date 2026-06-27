@@ -2,12 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── Theme tokens ── */
+/* ── Non-color theme tokens (used in inline styles) ── */
 :root {
-  --color-body: #575757;
-  --color-heading: #2a2d34;
-  --color-muted: #8d8d8d;
-  --color-accent: #d3cbf5;
   --console-bg: #2a2d34;
   --console-border: #e5e5e5;
   --console-shadow: #d7d3e7;
@@ -15,15 +11,18 @@
 }
 
 .dark {
-  --color-body: #94a3b8;
-  --color-heading: #f0f2f5;
-  --color-muted: #64748b;
-  --color-accent: #d3cbf5;
   --console-bg: #0d1117;
   --console-border: #2a2d3a;
   --console-shadow: #0a0d1a;
-  --card-shadow: rgba(0, 0, 0, 0.35);
+  --card-shadow: rgba(0, 0, 0, 0.4);
 }
+
+/* ── Dark mode text overrides ── */
+/* Tailwind wraps custom colors in rgb() which breaks CSS var() hex values.
+   These explicit overrides bypass that by using higher specificity. */
+.dark .text-heading { color: #e2e8f0; }
+.dark .text-body    { color: #94a3b8; }
+.dark .text-muted   { color: #64748b; }
 
 /* ── Adobe Typekit Nobel font ── */
 body {
@@ -51,20 +50,20 @@ a {
   display: inline-block;
   width: 2px;
   height: 1.1em;
-  background-color: var(--color-body);
+  background-color: #575757;
   margin-left: 2px;
   vertical-align: text-bottom;
   animation: blink 1s step-end infinite;
 }
 
+.dark .typewriter-cursor {
+  background-color: #94a3b8;
+}
+
 @keyframes blink {
   0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
+  100% { opacity: 1; }
+  50%  { opacity: 0; }
 }
 
 /* ── Scroll arrow ── */
@@ -72,11 +71,15 @@ a {
   display: inline-block;
   width: 22px;
   height: 22px;
-  border-right: 3px solid var(--color-body);
-  border-bottom: 3px solid var(--color-body);
+  border-right: 3px solid #575757;
+  border-bottom: 3px solid #575757;
   transform: rotate(45deg);
   cursor: pointer;
   transition: opacity 0.3s;
+}
+
+.dark .scroll-arrow {
+  border-color: #94a3b8;
 }
 
 .scroll-arrow:hover {
@@ -117,24 +120,12 @@ a {
 }
 
 /* ── Code console syntax colors ── */
-.c1 {
-  color: #ac78c2;
-} /* purple  – keywords  */
-.c2 {
-  color: #c5c8c6;
-} /* grey    – operators */
-.c3 {
-  color: #5888ca;
-} /* blue    – types     */
-.c4 {
-  color: #f0c674;
-} /* yellow  – strings   */
-.c5 {
-  color: #b5bd68;
-} /* green   – identifiers */
-.c6 {
-  color: #81a2be;
-} /* light blue – decorators */
+.c1 { color: #ac78c2; } /* purple  – keywords    */
+.c2 { color: #c5c8c6; } /* grey    – operators   */
+.c3 { color: #5888ca; } /* blue    – types       */
+.c4 { color: #f0c674; } /* yellow  – strings     */
+.c5 { color: #b5bd68; } /* green   – identifiers */
+.c6 { color: #81a2be; } /* lt blue – decorators  */
 
 .code-link {
   color: #f0c674 !important;
@@ -148,43 +139,24 @@ html {
 
 /* ── Floating background blobs ── */
 @keyframes float-blob-1 {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(30px, -22px) scale(1.04);
-  }
-  66% {
-    transform: translate(-12px, 16px) scale(0.97);
-  }
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(30px, -22px) scale(1.04); }
+  66%       { transform: translate(-12px, 16px) scale(0.97); }
 }
 
 @keyframes float-blob-2 {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  33% {
-    transform: translate(-28px, 22px) scale(0.96);
-  }
-  66% {
-    transform: translate(18px, -14px) scale(1.03);
-  }
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(-28px, 22px) scale(0.96); }
+  66%       { transform: translate(18px, -14px) scale(1.03); }
 }
 
-.blob-1 {
-  animation: float-blob-1 12s ease-in-out infinite;
-}
-
-.blob-2 {
-  animation: float-blob-2 16s ease-in-out infinite 4s;
-}
+.blob-1 { animation: float-blob-1 12s ease-in-out infinite; }
+.blob-2 { animation: float-blob-2 16s ease-in-out infinite 4s; }
 
 /* ── Status pulse ── */
 @keyframes status-pulse {
   0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); }
-  50% { opacity: 0.85; box-shadow: 0 0 0 5px rgba(74, 222, 128, 0); }
+  50%       { opacity: 0.85; box-shadow: 0 0 0 5px rgba(74, 222, 128, 0); }
 }
 
 .status-dot {

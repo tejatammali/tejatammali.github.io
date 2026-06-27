@@ -9,7 +9,7 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="bg-[#F0F0F0] dark:bg-[#131720] min-h-screen flex flex-col items-center justify-center py-20 px-8 transition-colors duration-300"
+      className="bg-[#F0F0F0] dark:bg-[#111827] min-h-screen flex flex-col items-center justify-center py-20 px-8 transition-colors duration-300"
     >
       {/* Title */}
       <div className="flex flex-col items-center mb-12">
