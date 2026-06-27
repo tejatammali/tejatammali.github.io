@@ -4,13 +4,25 @@ import { motion } from "framer-motion";
 
 const PROJECTS = [
   {
+    name: "Pitwall",
+    subtitle: "F1 Robot Fleet Reliability Platform",
+    aim: "SRE observability platform monitoring a simulated F1 pit crew robot fleet of 70 robots across 5 teams, deployed on AWS EKS.",
+    year: null,
+    description:
+      "Provisioned resilient AWS EKS infrastructure across 2 availability zones using Terraform — isolated worker nodes in private subnets, remote state in S3 with versioning for disaster recovery. Deployed observability stack via Helm; instrumented Flask Fleet API with 7 Prometheus metrics (availability, torque accuracy, pit stop latency p99) and Loki log aggregation across 70 pods. Defined 5 SLOs and built multi-window error budget burn rate dashboards in Grafana; implemented 10 alert rules (P1–P3) routed to PagerDuty with per-alert runbooks covering crashes, robot trips, and unsafe releases.",
+    tags: ["AWS EKS", "Terraform", "Kubernetes", "Helm", "Prometheus", "Loki", "Grafana"],
+    github: "https://github.com/tejatammali/pitwall",
+    demo: null,
+    gradient: "linear-gradient(135deg, #d3cbf5 0%, #b8a8f0 100%)",
+  },
+  {
     name: "SkyWatcher",
     subtitle: "Observability Engine",
     aim: "Production-style observability platform monitoring a live flight data ingestion service end-to-end, from metric collection to SLO-driven alerting and incident runbooks.",
     year: null,
     description:
-      "Configured a Python service with Prometheus exposing p95 latency, error rate, and throughput via /metrics; built a 12-panel Grafana dashboard covering three of the four Golden Signals. Defined SLIs/SLOs (99% success rate, p95 < 2s, 7-day window) and implemented fast and slow burn Alertmanager rules tied to error budget consumption. Migrated the 4-service docker-compose stack to Kubernetes — Deployments, Services, ConfigMaps, PVCs, and Secrets in a dedicated namespace with liveness/readiness probes.",
-    tags: ["Python", "Docker", "Kubernetes", "Prometheus", "Alertmanager", "Grafana"],
+      "Instrumented a Python/Golang service with Prometheus, exposing p95 latency, error rate, and throughput via /metrics; built a Grafana dashboard tracking the Four Golden Signals. Defined SLIs/SLOs (99% success rate, p95 < 2s, 7-day window) and implemented fast- and slow-burn Prometheus alert rules tied to error budget consumption. Orchestrated a 4-service observability stack via docker-compose for one-command deployment with persistent metric retention. Authored runbooks for 2 alert scenarios and validated end-to-end alerting via failure injection.",
+    tags: ["Python", "Golang", "Docker", "Prometheus", "Alertmanager", "Grafana"],
     github: "https://github.com/tejatammali/skywatch",
     demo: null,
     gradient: "linear-gradient(135deg, #f5d3cb 0%, #f0a898 100%)",
@@ -26,18 +38,6 @@ const PROJECTS = [
     github: "https://github.com/tejatammali/houseHaggle",
     demo: null,
     gradient: "linear-gradient(135deg, #a8d4f5 0%, #8ab8f0 100%)",
-  },
-  {
-    name: "EvaluAI",
-    subtitle: "AI-Powered University Education Platform",
-    aim: "Master's capstone applying SDLC, Agile, team collaboration, and management-level reporting.",
-    year: "2024",
-    description:
-      "Modernized legacy Moodle LMS workflows by connecting them with a scalable PHP middleware layer, integrating multiple LLM APIs to deliver AI capabilities. Maintained data sovereignty and academic integrity by implementing a rubric-based automated grading module, including a secure code-submission pipeline and audit logs.",
-    tags: ["Dart", "Flutter", "Moodle LMS"],
-    github: "https://github.com/umgc/fall2024",
-    demo: null,
-    gradient: "linear-gradient(135deg, #d3cbf5 0%, #b8a8f0 100%)",
   },
 ];
 

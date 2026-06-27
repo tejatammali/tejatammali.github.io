@@ -4,14 +4,15 @@ import { motion } from "framer-motion";
 
 const EXPERIENCES = [
   {
-    title: "Product and Pricing Reference Data Associate \u2013 Operations Team",
+    title: "Pricing Reference Data Associate \u2013 Operations Team",
     company: "Morgan Stanley",
     location: "Baltimore, MD",
     date: "October 2022 \u2013 Present",
     bullets: [
-      "Automated Python/Alteryx frameworks for 50k+ products, reducing daily processing from 8 hours to 30 seconds; led training and demos to ensure team adoption and error resolution.",
-      "Built a simulation engine normalizing data for 500k products, achieving a 23% accuracy gain; leveraged impact analysis to pivot senior leadership toward modernized backend logic.",
-      "Acted as the control team bridge between end users and internal/external vendors, managing 160+ monthly user inquiries and 12+ high-priority incidents from inquiry through resolution.",
+      "Eliminated 8 hours of daily toil by engineering a self-healing Alteryx/Python automation pipeline for 50k+ products; reducing manual intervention by 99.9% and driving team-wide adoption.",
+      "Built a data normalization engine for 500k products achieving a 23% accuracy gain, reducing downstream data errors; leveraged impact analysis to drive senior leadership toward modernized backend architecture.",
+      "Served as incident commander for a global operations team, owning triage and cross-team coordination for 12+ high-priority production incidents monthly; bridged engineering and external vendors to reduce escalation lag.",
+      "Established incident response procedures for mission-critical pricing failures; authored a runbook library adopted across technical and non-technical teams, standardizing response and reducing MTTR.",
     ],
   },
   {

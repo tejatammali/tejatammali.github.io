@@ -2,12 +2,12 @@ import { useState, useEffect, useRef } from "react";
 
 const PHRASES = [
   "hey there!",
-  "nice to meet you.",
-  "my name is teja.",
-  "operational and technical mindset, D.C. area.",
+  "i'm teja.",
+  "SRE-minded engineer.",
+  "building reliability, one SLO at a time.",
   "currently at Morgan Stanley.",
-  "fan of pizza.",
-  "i also like to work out.",
+  "D.C. area.",
+  "fan of F1 and pizza.",
   "thanks for visiting!",
 ];
 
