@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { label: "PROJECTS", href: "#projects" },
   { label: "SKILLS", href: "#skills" },
   { label: "EDUCATION", href: "#education" },
+  { label: "CONTACT", href: "#contact" },
 ];
 
 function SunIcon() {
@@ -38,12 +39,31 @@ function MoonIcon() {
 
 export default function Navbar() {
   const [visible, setVisible] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
   const { theme, toggle } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 120);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const sectionIds = NAV_LINKS.map((l) => l.href.slice(1));
+
+    const updateActive = () => {
+      const scrollMid = window.scrollY + window.innerHeight * 0.35;
+      let current = "";
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollMid) current = id;
+      }
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", updateActive, { passive: true });
+    updateActive();
+    return () => window.removeEventListener("scroll", updateActive);
   }, []);
 
   return (
@@ -65,15 +85,18 @@ export default function Navbar() {
               Teja Tammali
             </a>
             <div className="flex items-center">
-              {NAV_LINKS.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="nav-link px-3 py-[22px] font-medium text-[14px] text-heading tracking-wide hidden md:inline-block"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {NAV_LINKS.map((link) => {
+                const id = link.href.slice(1);
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className={`nav-link px-3 py-[22px] font-medium text-[14px] text-heading tracking-wide hidden md:inline-block${activeSection === id ? " active" : ""}`}
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
               <a
                 href="/Tammali_Teja_Resume.pdf"
                 target="_blank"

@@ -102,8 +102,13 @@ a {
   transition: transform 350ms ease-in-out;
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link.active::after {
   transform: scaleX(1);
+}
+
+.nav-link.active {
+  opacity: 0.75;
 }
 
 .nav-link-home::after {
