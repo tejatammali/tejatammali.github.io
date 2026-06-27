@@ -45,7 +45,7 @@ export default function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="min-h-screen bg-white flex flex-col items-center py-20 px-8"
+      className="min-h-screen bg-white dark:bg-[#0f1117] flex flex-col items-center py-20 px-8 transition-colors duration-300"
     >
       <div className="flex flex-col items-center mb-12">
         <motion.h1
@@ -79,8 +79,8 @@ export default function ExperienceSection() {
             variants={itemVariants}
             whileHover={{ x: 6 }}
             transition={{ type: "spring", stiffness: 500, damping: 35 }}
-            className={`mb-10 pb-10 pl-6 border-l-[3px] border-l-[#e5e5e5] hover:border-l-[#d3cbf5] transition-colors duration-300 ${
-              i < EXPERIENCES.length - 1 ? "border-b border-b-[#e5e5e5]" : ""
+            className={`mb-10 pb-10 pl-6 border-l-[3px] border-l-[#e5e5e5] dark:border-l-[#2a2d3a] hover:border-l-[#d3cbf5] transition-colors duration-300 ${
+              i < EXPERIENCES.length - 1 ? "border-b border-b-[#e5e5e5] dark:border-b-[#2a2d3a]" : ""
             }`}
           >
             <div className="flex justify-between items-start flex-wrap gap-2 mb-2">

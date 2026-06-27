@@ -29,7 +29,7 @@ export default function Footer() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="bg-[#F0F0F0] h-24 flex flex-col items-center justify-center gap-2"
+      className="bg-[#F0F0F0] dark:bg-[#0d1117] h-24 flex flex-col items-center justify-center gap-2 transition-colors duration-300"
     >
       <div className="flex items-center gap-2 text-sm">
         {LINKS.map((link, i) => (

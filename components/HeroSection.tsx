@@ -13,13 +13,13 @@ export default function HeroSection() {
   const imageRef = useRef<HTMLDivElement>(null);
   const nameRef = useRef<HTMLHeadingElement>(null);
   const textRef = useRef<HTMLParagraphElement>(null);
+  const statusRef = useRef<HTMLDivElement>(null);
   const arrowRef = useRef<HTMLAnchorElement>(null);
 
   const text = useTypewriter();
 
   useGSAP(
     () => {
-      // Entrance timeline
       const tl = gsap.timeline({ delay: 0.15 });
 
       tl.from(imageRef.current, {
@@ -40,19 +40,23 @@ export default function HeroSection() {
           "-=0.25",
         )
         .from(
+          statusRef.current,
+          { opacity: 0, y: 10, duration: 0.5, ease: "power2.out" },
+          "-=0.1",
+        )
+        .from(
           arrowRef.current,
           { opacity: 0, y: -16, duration: 0.5, ease: "back.out(2)" },
-          "-=0.15",
+          "-=0.1",
         );
 
-      // Infinite bounce for arrow (runs independently after entrance)
       gsap.to(arrowRef.current, {
         y: 14,
         duration: 0.9,
         ease: "sine.inOut",
         yoyo: true,
         repeat: -1,
-        delay: 1.6,
+        delay: 1.8,
       });
     },
     { scope: sectionRef },
@@ -62,21 +66,21 @@ export default function HeroSection() {
     <section
       ref={sectionRef}
       id="home"
-      className="relative min-h-screen flex flex-col items-center justify-center gap-10 overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center gap-10 overflow-hidden bg-white dark:bg-[#0f1117] transition-colors duration-300"
     >
       {/* Decorative floating gradient orbs */}
       <div
         className="blob-1 absolute -top-24 -left-36 w-[620px] h-[620px] rounded-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle, rgba(211,203,245,0.45) 0%, transparent 65%)",
+            "radial-gradient(circle, rgba(211,203,245,0.35) 0%, transparent 65%)",
         }}
       />
       <div
         className="blob-2 absolute -bottom-24 -right-36 w-[520px] h-[520px] rounded-full pointer-events-none"
         style={{
           background:
-            "radial-gradient(circle, rgba(211,203,245,0.3) 0%, transparent 65%)",
+            "radial-gradient(circle, rgba(211,203,245,0.25) 0%, transparent 65%)",
         }}
       />
 
@@ -84,7 +88,7 @@ export default function HeroSection() {
         {/* Profile image */}
         <div
           ref={imageRef}
-          className="relative w-[420px] h-[480px] shrink-0 transition-transform duration-700 hover:scale-[1.02] cursor-default"
+          className="relative w-[320px] h-[380px] md:w-[420px] md:h-[480px] shrink-0 transition-transform duration-700 hover:scale-[1.02] cursor-default"
         >
           <Image
             src="/img/profile.jpg"
@@ -95,8 +99,8 @@ export default function HeroSection() {
           />
         </div>
 
-        {/* Name + typewriter */}
-        <div className="flex flex-col items-center text-center max-w-[320px]">
+        {/* Name + typewriter + status */}
+        <div className="flex flex-col items-center text-center max-w-[340px]">
           <h1
             ref={nameRef}
             className="font-light tracking-widest text-heading leading-tight mb-5"
@@ -112,15 +116,28 @@ export default function HeroSection() {
             {text}
             <span className="typewriter-cursor" aria-hidden="true" />
           </p>
+
+          {/* Systems status badge */}
+          <div
+            ref={statusRef}
+            className="flex items-center gap-2 mt-5 px-4 py-2 rounded-full border border-green-400/30 bg-green-400/5"
+          >
+            <span
+              className="status-dot w-2 h-2 rounded-full bg-green-400 shrink-0"
+            />
+            <span className="text-[11px] tracking-[2px] text-muted font-medium uppercase">
+              All Systems Operational
+            </span>
+          </div>
         </div>
       </div>
 
       {/* Scroll arrow */}
       <a
         ref={arrowRef}
-        href="#about"
+        href="#metrics"
         className="scroll-arrow"
-        aria-label="Scroll to about section"
+        aria-label="Scroll to metrics"
       />
     </section>
   );

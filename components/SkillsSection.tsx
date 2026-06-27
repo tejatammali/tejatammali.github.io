@@ -80,7 +80,7 @@ export default function SkillsSection() {
   return (
     <section
       id="skills"
-      className="min-h-screen bg-white flex flex-col items-center py-20 px-8"
+      className="min-h-screen bg-white dark:bg-[#0f1117] flex flex-col items-center py-20 px-8 transition-colors duration-300"
     >
       <div className="flex flex-col items-center mb-14">
         <motion.h1
@@ -114,8 +114,8 @@ export default function SkillsSection() {
             variants={cardVariants}
             whileHover={{ y: -8, boxShadow: "0 24px 60px rgba(0,0,0,0.10)" }}
             transition={{ type: "spring", stiffness: 400, damping: 28 }}
-            className="bg-white rounded-lg overflow-hidden flex flex-col"
-            style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.06)" }}
+            className="bg-white dark:bg-[#1c2030] rounded-lg overflow-hidden flex flex-col"
+            style={{ boxShadow: "0 4px 20px var(--card-shadow)" }}
           >
             {/* Gradient header */}
             <div
@@ -136,7 +136,7 @@ export default function SkillsSection() {
                 <motion.span
                   key={item.name}
                   variants={chipVariants}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#F0F0F0] text-body text-[13px]"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#F0F0F0] dark:bg-[#0f1117] text-body text-[13px]"
                 >
                   {item.icon && (
                     <i className={item.icon} style={{ fontSize: "1.1rem" }} />

@@ -9,7 +9,7 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="bg-[#F0F0F0] min-h-screen flex flex-col items-center justify-center py-20 px-8"
+      className="bg-[#F0F0F0] dark:bg-[#131720] min-h-screen flex flex-col items-center justify-center py-20 px-8 transition-colors duration-300"
     >
       {/* Title */}
       <div className="flex flex-col items-center mb-12">
@@ -32,7 +32,7 @@ export default function AboutSection() {
       </div>
 
       <div className="flex items-start justify-center gap-10 flex-wrap w-full max-w-5xl">
-        {/* Code console – slides in from left, then gently floats */}
+        {/* Python code console */}
         <motion.div
           initial={{ opacity: 0, x: -60 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -44,127 +44,108 @@ export default function AboutSection() {
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             className="rounded overflow-y-auto"
             style={{
-              height: 420,
+              height: 440,
               width: 560,
               fontFamily: "Monaco, monospace",
-              fontSize: "90%",
+              fontSize: "88%",
               lineHeight: "22px",
-              backgroundColor: "#2a2d34",
-              borderTop: "20px solid #e5e5e5",
-              boxShadow: "12px 12px 1px #d7d3e7",
+              backgroundColor: "var(--console-bg)",
+              borderTop: "20px solid var(--console-border)",
+              boxShadow: "12px 12px 1px var(--console-shadow)",
               padding: "28px",
             }}
           >
-          {/* package aboutMe; */}
-          <div>
-            <span className="c1">package</span>{" "}
-            <span className="c5">aboutMe</span>
-            <span className="c2">;</span>
-          </div>
+            {/* # about_teja.py */}
+            <div>
+              <span className="c2"># about_teja.py</span>
+            </div>
 
-          <div className="mt-3">
-            <span className="c1">public</span>{" "}
-            <span className="c3">class</span>{" "}
-            <span className="c5">Teja</span>{" "}
-            <span className="c1">extends</span>{" "}
-            <span className="c5">humanBean</span>{" "}
-            <span className="c2">{"{"}</span>
-          </div>
+            <div className="mt-3">
+              <span className="c1">class </span>
+              <span className="c5">SREEngineer</span>
+              <span className="c2">:</span>
+            </div>
 
-          {/* Constructor */}
-          <div className="pl-6">
-            <span className="c1">public</span>{" "}
-            <span className="c5">Teja</span>
-            <span className="c2">{"() {"}</span>
-
-            <div className="pl-6">
+            {/* Fields */}
+            <div className="pl-6 mt-1">
               <div>
-                <span className="c3">String</span>{" "}
-                <span className="c2">fullName = </span>
+                <span className="c5">name</span>
+                <span className="c2">      = </span>
                 <span className="c4">&quot;Teja Tammali&quot;</span>
-                <span className="c2">;</span>
               </div>
               <div>
-                <span className="c3">String</span>{" "}
-                <span className="c2">home = </span>
-                <span className="c4">&quot;Maryland&quot;</span>
-                <span className="c2">;</span>
+                <span className="c5">location</span>
+                <span className="c2">  = </span>
+                <span className="c4">&quot;Maryland, D.C. Area&quot;</span>
+              </div>
+              <div>
+                <span className="c5">currently</span>
+                <span className="c2"> = </span>
+                <span className="c4">&quot;Morgan Stanley&quot;</span>
               </div>
 
-              <div className="mt-2">
-                <span className="c3">String</span>{" "}
-                <span className="c2">mastersDegree = </span>
-                <span className="c4">
-                  &quot;UMGC (Information Technology)&quot;
-                </span>
-                <span className="c2">;</span>
-              </div>
-              <div>
-                <span className="c3">String</span>{" "}
-                <span className="c2">bachelorsDegree = </span>
-                <span className="c4">
-                  &quot;UMD College Park (Information Science)&quot;
-                </span>
-                <span className="c2">;</span>
+              <div className="mt-3">
+                <span className="c5">focus</span>
+                <span className="c2"> = [</span>
+                {[
+                  "SLI/SLO & Error Budgets",
+                  "Incident Response & RCA",
+                  "Toil Elimination",
+                  "Observability Platforms",
+                ].map((f, i, arr) => (
+                  <div key={f} className="pl-6">
+                    <span className="c4">&quot;{f}&quot;</span>
+                    {i < arr.length - 1 && <span className="c2">,</span>}
+                  </div>
+                ))}
+                <span className="c2">]</span>
               </div>
 
-              <div>
-                <span className="c3">String[]</span>{" "}
-                <span className="c2">hobbies = </span>
-                <span className="c1">new </span>
-                <span className="c3">String[]</span>
-                <span className="c2">{"{"}</span>
-                <div className="pl-6">
-                  {[
-                    "🏎️ F1 Connoisseur",
-                    "🛫 Traveling",
-                    "💪 Gym Time",
-                    "👾 Video Games",
-                    "👨‍💻 New Technology",
-                  ].map((h, i, arr) => (
-                    <div key={h}>
-                      <span className="c4">&quot;{h}&quot;</span>
-                      {i < arr.length - 1 && (
-                        <span className="c2">,</span>
-                      )}
-                    </div>
-                  ))}
-                </div>
-                <span className="c2">{"}"}</span>
+              <div className="mt-3">
+                <span className="c5">hobbies</span>
+                <span className="c2"> = [</span>
+                {[
+                  "🏎️  F1 Connoisseur",
+                  "🛫  Traveling",
+                  "💪  Gym Time",
+                  "👾  Video Games",
+                ].map((h, i, arr) => (
+                  <div key={h} className="pl-6">
+                    <span className="c4">&quot;{h}&quot;</span>
+                    {i < arr.length - 1 && <span className="c2">,</span>}
+                  </div>
+                ))}
+                <span className="c2">]</span>
               </div>
             </div>
 
-            <span className="c2">{"}"}</span>
-          </div>
-
-          {/* contact() method */}
-          <div className="pl-6 mt-1">
-            <span className="c1">public static</span>{" "}
-            <span className="c3">void</span>{" "}
-            <span className="c5">contact</span>
-            <span className="c2">{"() {"}</span>
-
-            <div className="pl-6">
+            {/* contact() method */}
+            <div className="pl-6 mt-3">
               <div>
-                <span className="c3">Email</span>{" "}
-                <span className="c2">email = </span>
-                <span className="c1">new</span>{" "}
-                <span className="c2">Email(</span>
-                <span className="c4">&quot;</span>
-                <a href="mailto:teja.tammali0@gmail.com" className="code-link">
-                  teja.tammali0@gmail.com
-                </a>
-                <span className="c4">&quot;</span>
-                <span className="c2">);</span>
+                <span className="c6">@staticmethod</span>
               </div>
               <div>
-                <span className="c3">String[]</span>{" "}
-                <span className="c2">links = </span>
-                <span className="c1">new </span>
-                <span className="c3">String[]</span>
+                <span className="c1">def </span>
+                <span className="c5">contact</span>
+                <span className="c2">():</span>
+              </div>
+              <div className="pl-6">
+                <span className="c1">return </span>
                 <span className="c2">{"{"}</span>
                 <div className="pl-6">
                   <div>
+                    <span className="c4">&quot;email&quot;</span>
+                    <span className="c2">:    </span>
+                    <span className="c4">&quot;</span>
+                    <a href="mailto:teja.tammali0@gmail.com" className="code-link">
+                      teja.tammali0@gmail.com
+                    </a>
+                    <span className="c4">&quot;</span>
+                    <span className="c2">,</span>
+                  </div>
+                  <div>
+                    <span className="c4">&quot;linkedin&quot;</span>
+                    <span className="c2">: </span>
                     <span className="c4">&quot;</span>
                     <a
                       href="https://www.linkedin.com/in/tejatammali/"
@@ -172,12 +153,14 @@ export default function AboutSection() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      LinkedIn
+                      /in/tejatammali
                     </a>
                     <span className="c4">&quot;</span>
                     <span className="c2">,</span>
                   </div>
                   <div>
+                    <span className="c4">&quot;github&quot;</span>
+                    <span className="c2">:   </span>
                     <span className="c4">&quot;</span>
                     <a
                       href="https://github.com/tejatammali"
@@ -185,7 +168,7 @@ export default function AboutSection() {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      Github
+                      /tejatammali
                     </a>
                     <span className="c4">&quot;</span>
                   </div>
@@ -193,17 +176,10 @@ export default function AboutSection() {
                 <span className="c2">{"}"}</span>
               </div>
             </div>
-
-            <span className="c2">{"}"}</span>
-          </div>
-
-          <div>
-            <span className="c2">{"}"}</span>
-          </div>
           </motion.div>
         </motion.div>
 
-        {/* Profile photo – slides in from right, then gently floats */}
+        {/* Profile photo */}
         <motion.div
           initial={{ opacity: 0, x: 60 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -216,9 +192,9 @@ export default function AboutSection() {
             className="relative overflow-hidden rounded"
             style={{
               width: 300,
-              height: 420,
-              borderTop: "20px solid #e5e5e5",
-              boxShadow: "12px 12px 1px #d7d3e7",
+              height: 440,
+              borderTop: "20px solid var(--console-border)",
+              boxShadow: "12px 12px 1px var(--console-shadow)",
             }}
           >
             <Image

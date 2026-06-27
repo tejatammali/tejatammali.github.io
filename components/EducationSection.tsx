@@ -36,7 +36,7 @@ export default function EducationSection() {
   return (
     <section
       id="education"
-      className="min-h-screen bg-[#474d5a] flex flex-col items-center py-20 px-8 text-white"
+      className="min-h-screen bg-[#474d5a] dark:bg-[#0d1117] flex flex-col items-center py-20 px-8 text-white transition-colors duration-300"
     >
       <div className="flex flex-col items-center mb-12">
         <motion.h1
