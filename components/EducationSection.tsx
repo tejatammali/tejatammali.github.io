@@ -6,29 +6,30 @@ import { motion } from "framer-motion";
 const DEGREES = [
   {
     school: "University of Maryland, Global Campus",
-    degree: "M.S. \u2013 Information Technology",
-    status: "Graduated: December 2024",
-    logo: "/img/umgclogo.png",
+    degree: "M.S. – Information Technology",
+    status: "December 2024",
+    // Swap this for /img/umgclogo.png once the PNG is dropped into public/img
+    logo: "/img/umgclogo.svg",
   },
   {
     school: "University of Maryland, College Park",
-    degree: "B.S. \u2013 Information Science",
-    status: "Graduated: May 2022",
+    degree: "B.S. – Information Science",
+    status: "May 2022",
     logo: "/img/umdlogo.png",
   },
 ];
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.25 } },
+  visible: { transition: { staggerChildren: 0.18 } },
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, x: 50 },
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
-    x: 0,
-    transition: { duration: 0.65, ease: [0.25, 0.46, 0.45, 0.94] as const },
+    y: 0,
+    transition: { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] as const },
   },
 };
 
@@ -36,9 +37,9 @@ export default function EducationSection() {
   return (
     <section
       id="education"
-      className="min-h-screen bg-[#474d5a] dark:bg-[#0d1117] flex flex-col items-center py-20 px-8 text-white transition-colors duration-300"
+      className="bg-[#474d5a] dark:bg-[#0d1117] flex flex-col items-center py-20 px-8 text-white transition-colors duration-300"
     >
-      <div className="flex flex-col items-center mb-12">
+      <div className="flex flex-col items-center mb-10">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -62,32 +63,31 @@ export default function EducationSection() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-80px" }}
-        className="w-full max-w-3xl flex flex-col gap-8"
+        className="w-full max-w-3xl grid grid-cols-1 sm:grid-cols-2 gap-4"
       >
         {DEGREES.map((d) => (
           <motion.div
             key={d.school}
             variants={itemVariants}
-            whileHover={{ x: -6 }}
+            whileHover={{ y: -4 }}
             transition={{ type: "spring", stiffness: 500, damping: 35 }}
-            className="flex items-center gap-6 flex-wrap pr-6 border-r-[3px] border-r-[rgba(255,255,255,0.15)] hover:border-r-accent transition-colors duration-300"
+            className="flex items-center gap-4 rounded-lg border border-white/10 hover:border-accent/40 bg-white/[0.04] px-5 py-4 transition-colors duration-300"
           >
-            <div className="relative w-16 h-16 shrink-0">
+            <div className="relative w-12 h-12 shrink-0 rounded bg-white p-1">
               <Image
                 src={d.logo}
                 alt={`${d.school} logo`}
                 fill
-                className="object-contain"
+                className="object-contain p-1"
               />
             </div>
-            <div className="flex flex-col gap-1">
-              <h2 className="text-lg font-semibold m-0">{d.school}</h2>
-              <h3 className="text-base font-normal m-0 opacity-90">{d.degree}</h3>
-              <p className="text-sm m-0 opacity-70">{d.status}</p>
+            <div className="flex flex-col gap-0.5 min-w-0">
+              <h2 className="text-[15px] font-semibold m-0 leading-snug">{d.degree}</h2>
+              <p className="text-[13px] m-0 opacity-75 leading-snug">{d.school}</p>
+              <p className="text-[12px] m-0 opacity-50">{d.status}</p>
             </div>
           </motion.div>
         ))}
-
       </motion.div>
     </section>
   );

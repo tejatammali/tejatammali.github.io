@@ -135,9 +135,9 @@ export default function HeroSection() {
       {/* Scroll arrow */}
       <a
         ref={arrowRef}
-        href="#metrics"
+        href="#stack"
         className="scroll-arrow"
-        aria-label="Scroll to metrics"
+        aria-label="Scroll to stack"
       />
     </section>
   );

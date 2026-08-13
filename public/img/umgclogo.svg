@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 170" role="img" aria-label="University of Maryland Global Campus">
+  <title>University of Maryland Global Campus</title>
+  <defs>
+    <clipPath id="globe">
+      <circle cx="100" cy="58" r="52" />
+    </clipPath>
+  </defs>
+
+  <!-- Swirled globe mark -->
+  <g clip-path="url(#globe)" fill="none" transform="rotate(-32 100 58)">
+    <ellipse cx="100" cy="26" rx="46" ry="18" stroke="#FFC72C" stroke-width="8" />
+    <ellipse cx="100" cy="42" rx="58" ry="26" stroke="#FFC72C" stroke-width="10" />
+    <ellipse cx="100" cy="60" rx="60" ry="28" stroke="#E4002B" stroke-width="11" />
+    <ellipse cx="100" cy="76" rx="50" ry="22" stroke="#E4002B" stroke-width="8" />
+    <ellipse cx="100" cy="92" rx="58" ry="26" stroke="#111111" stroke-width="10" />
+    <ellipse cx="100" cy="108" rx="44" ry="17" stroke="#111111" stroke-width="7" />
+  </g>
+
+  <!-- Wordmark -->
+  <text
+    x="100"
+    y="152"
+    text-anchor="middle"
+    font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+    font-size="44"
+    font-weight="700"
+    letter-spacing="1"
+    fill="#111111"
+  >UMGC</text>
+</svg>
