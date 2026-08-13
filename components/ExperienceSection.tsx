@@ -2,19 +2,63 @@
 
 import { motion } from "framer-motion";
 
-const EXPERIENCES = [
+type Role = {
+  node: string;
+  title: string;
+  company: string;
+  location: string;
+  date: string;
+  /** Grouped, labelled highlights — rendered as two diagram panels */
+  groups?: { label: string; items: { term: string; text: string }[] }[];
+  /** Plain prose — used for shorter roles */
+  summary?: string[];
+  tags: string[];
+};
+
+const EXPERIENCES: Role[] = [
   {
     node: "prod",
     title: "Pricing Reference Data Associate, Automation Engineering",
     company: "Morgan Stanley",
     location: "Baltimore, MD",
     date: "October 2022 – Present",
-    summary: [
-      "Own automation delivery end to end for a global pricing reference data platform — gathering requirements, building Python and Alteryx pipelines, and driving them through UAT, rollout, and user enablement. The work is fundamentally toil reduction: replacing recurring manual processing with self-healing workflows that validate, normalize, and reconcile data across hundreds of thousands of products, and recover from bad inputs on their own instead of paging a human.",
-      "Partner with development teams to define what “good” looks like before code ships — translating service expectations into SLI/SLO language, business requirements, user stories, acceptance criteria, and Signavio process flows tracked in Jira, then leading backlog refinement and UAT cycles through production deployment. Supported the platform’s on-prem to cloud migration, leading price validation between the legacy and cloud systems and reporting data quality and cutover readiness to stakeholders.",
-      "Lead the operations side of the global incident response rotation, partnering with reliability engineering to establish blast radius, drive resolution, and close the loop afterward — authoring runbooks adopted by both technical and non-technical teams so the next occurrence is a known, documented path rather than a fresh investigation.",
+    groups: [
+      {
+        label: "Technical Mindset",
+        items: [
+          {
+            term: "Toil Elimination",
+            text: "Engineered Python and Alteryx automations for 100,000+ products, eliminating 1,800+ hours of yearly manual processing (a 99.9% reduction).",
+          },
+          {
+            term: "Data Architecture",
+            text: "Built a SQL and Alteryx normalization engine across 500,000 products, driving a 23% accuracy gain and influencing backend modernization.",
+          },
+          {
+            term: "Cloud Migration",
+            text: "Validated an enterprise migration of over 1 million records, confirming a 99.95% data match between legacy and cloud platforms.",
+          },
+        ],
+      },
+      {
+        label: "Operational Mindset",
+        items: [
+          {
+            term: "Incident Management",
+            text: "Led the operations response for ~7 monthly global incidents, authoring runbooks that standardized recovery and reduced MTTR.",
+          },
+          {
+            term: "Process Governance",
+            text: "Defined business requirements, acceptance criteria, and Signavio process flows in Jira to align development with business needs.",
+          },
+          {
+            term: "Release Management",
+            text: "Coordinated backlog refinement, UAT cycles, and stakeholder training to ensure seamless production deployments and audit readiness.",
+          },
+        ],
+      },
     ],
-    tags: ["Python", "Alteryx", "SQL", "Jira", "SLI/SLO", "Incident Response", "Runbooks", "Cloud Migration"],
+    tags: ["Python", "Alteryx", "SQL", "Jira", "Signavio", "Incident Response", "Runbooks", "Cloud Migration"],
   },
   {
     node: "volunteer",
@@ -114,17 +158,52 @@ export default function ExperienceSection() {
               </span>
             </div>
 
-            <div className="mt-4 flex flex-col gap-3">
-              {exp.summary.map((paragraph) => (
-                <p
-                  key={paragraph.slice(0, 40)}
-                  className="text-body m-0"
-                  style={{ fontSize: "94%", lineHeight: 1.75 }}
-                >
-                  {paragraph}
-                </p>
-              ))}
-            </div>
+            {exp.groups && (
+              <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-5">
+                {exp.groups.map((group) => (
+                  <div
+                    key={group.label}
+                    className="rounded-lg border border-dashed border-[#e2e2e2] dark:border-[#2a2d3a] p-5"
+                  >
+                    <div className="flex items-center gap-2 mb-4">
+                      <span className="h-1.5 w-1.5 rounded-full bg-accent shrink-0" />
+                      <span className="font-mono text-[10px] uppercase tracking-[2px] text-muted">
+                        {group.label}
+                      </span>
+                    </div>
+                    <div className="flex flex-col gap-3.5">
+                      {group.items.map((item) => (
+                        <div key={item.term}>
+                          <span className="block text-heading font-semibold text-[13px] mb-0.5">
+                            {item.term}
+                          </span>
+                          <p
+                            className="text-body m-0"
+                            style={{ fontSize: "13.5px", lineHeight: 1.65 }}
+                          >
+                            {item.text}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {exp.summary && (
+              <div className="mt-4 flex flex-col gap-3">
+                {exp.summary.map((paragraph) => (
+                  <p
+                    key={paragraph.slice(0, 40)}
+                    className="text-body m-0"
+                    style={{ fontSize: "94%", lineHeight: 1.75 }}
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            )}
 
             <div className="mt-5 flex flex-wrap gap-1.5">
               {exp.tags.map((tag) => (
