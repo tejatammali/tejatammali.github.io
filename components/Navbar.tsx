@@ -97,14 +97,6 @@ export default function Navbar() {
                   </a>
                 );
               })}
-              <a
-                href="/Tammali_Teja_Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ml-3 px-3 py-1.5 rounded text-[13px] font-medium text-heading border border-accent hover:bg-accent/30 transition-colors duration-200"
-              >
-                Resume ↓
-              </a>
               <button
                 onClick={toggle}
                 aria-label="Toggle dark mode"
